@@ -1,0 +1,12 @@
+{
+  "name": "toucher",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/kilohaty/toucher.git",
+  "author": "axi <axi@kilohaty.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vue": "^2.4.2"
+  },
+  "dependencies": {}
+}
