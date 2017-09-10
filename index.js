@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 (function () {
-  const Toucher = (function () {
+  const VFb = (function () {
     const MAX_DISTANCE = 10;
     const collection   = {};
     const startPos     = {};
@@ -64,17 +64,17 @@ import Vue from 'vue';
     }
   }());
 
-  document.addEventListener('touchstart', Toucher.onDocTouchStart.bind(Toucher));
-  document.addEventListener('touchmove', Toucher.onDocTouchMove.bind(Toucher));
+  document.addEventListener('touchstart', VFb.onDocTouchStart.bind(VFb));
+  document.addEventListener('touchmove', VFb.onDocTouchMove.bind(VFb));
 
   /* 触摸反馈 */
   Vue.directive('feedback', {
     bind: function (el, binding, vnode) {
-      Toucher.register(vnode.elm, binding.value || 'e-feedback');
+      VFb.register(vnode.elm, binding.value || 'e-feedback');
     },
 
     unbind: function (el, binding, vnode) {
-      Toucher.destroy(vnode.elm);
+      VFb.destroy(vnode.elm);
     }
   });
 

@@ -1,8 +1,8 @@
 {
-  "name": "toucher",
+  "name": "v-feedback",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/kilohaty/toucher.git",
+  "repository": "https://github.com/kilohaty/v-feedback.git",
   "author": "axi <axi@kilohaty.com>",
   "license": "MIT",
   "devDependencies": {
