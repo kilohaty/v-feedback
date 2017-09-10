@@ -1,4 +1,4 @@
-# toucher
+# v-feedback
 
 #### touch feedback directive for vue2.0 
 
