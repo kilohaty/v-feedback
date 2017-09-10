@@ -2,11 +2,26 @@
   "name": "v-feedback",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/kilohaty/v-feedback.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kilohaty/v-feedback.git"
+  },
   "author": "axi <axi@kilohaty.com>",
   "license": "MIT",
   "devDependencies": {
     "vue": "^2.4.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "description": "```\r <!-- default class \"e-feedback\" -->\r <div v-feedback></div>\r <!-- custom class \"my-className\" -->\r <div v-feedback=\"'my-className'\"></div>\r ```",
+  "bugs": {
+    "url": "https://github.com/kilohaty/v-feedback/issues"
+  },
+  "homepage": "https://github.com/kilohaty/v-feedback#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "feedback"
+  ]
 }
