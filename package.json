@@ -12,7 +12,7 @@
     "vue": "^2.4.2"
   },
   "dependencies": {},
-  "description": "```\r <!-- default class \"e-feedback\" -->\r <div v-feedback></div>\r <!-- custom class \"my-className\" -->\r <div v-feedback=\"'my-className'\"></div>\r ```",
+  "description": "touch feedback directive for vue2.0 Edit",
   "bugs": {
     "url": "https://github.com/kilohaty/v-feedback/issues"
   },
