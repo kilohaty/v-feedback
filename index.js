@@ -15,12 +15,12 @@ import Vue from 'vue';
     }
 
     return {
-      generateKey() {
+      generateKey: function () {
         return String(Math.random()).slice(2);
       },
 
-      register(el, className) {
-        var key       = this.generateKey();
+      register: function (el, className) {
+        var key         = this.generateKey();
         collection[key] = {el: el, className: className};
 
         el.setAttribute('data-feedback-key', key);
@@ -30,7 +30,7 @@ import Vue from 'vue';
         return key;
       },
 
-      destroy(element) {
+      destroy: function (element) {
         var key       = element.getAttribute('data-feedback-key');
         var el        = collection[key].el;
         var className = collection[key].className;
@@ -41,13 +41,13 @@ import Vue from 'vue';
         delete collection[key];
       },
 
-      onDocTouchStart(e) {
-        var touch      = e.touches[0];
+      onDocTouchStart: function (e) {
+        var touch        = e.touches[0];
         startPos.screenY = touch.screenY;
         startPos.pageY   = touch.pageY;
       },
 
-      onDocTouchMove(e) {
+      onDocTouchMove: function (e) {
         var touch           = e.touches[0];
         var distanceScreenY = Math.abs(touch.screenY - startPos.screenY);
         var distancePageY   = Math.abs(touch.pageY - startPos.pageY);
