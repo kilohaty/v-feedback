@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
 (function () {
-  const VFb = (function () {
-    const MAX_DISTANCE = 10;
-    const collection   = {};
-    const startPos     = {};
+  var VFb = (function () {
+    var MAX_DISTANCE = 10;
+    var collection   = {};
+    var startPos     = {};
 
     function addClass(elm, className) {
       elm.classList.add(className);
@@ -20,7 +20,7 @@ import Vue from 'vue';
       },
 
       register(el, className) {
-        const key       = this.generateKey();
+        var key       = this.generateKey();
         collection[key] = {el: el, className: className};
 
         el.setAttribute('data-feedback-key', key);
@@ -31,9 +31,9 @@ import Vue from 'vue';
       },
 
       destroy(element) {
-        const key       = element.getAttribute('data-feedback-key');
-        const el        = collection[key].el;
-        const className = collection[key].className;
+        var key       = element.getAttribute('data-feedback-key');
+        var el        = collection[key].el;
+        var className = collection[key].className;
         el.removeEventListener('touchstart', addClass.bind(null, el, className));
         el.removeEventListener('touchend', removeClass.bind(null, el, className));
         el.removeEventListener('touchcancel', removeClass.bind(null, el, className));
@@ -42,15 +42,15 @@ import Vue from 'vue';
       },
 
       onDocTouchStart(e) {
-        const touch      = e.touches[0];
+        var touch      = e.touches[0];
         startPos.screenY = touch.screenY;
         startPos.pageY   = touch.pageY;
       },
 
       onDocTouchMove(e) {
-        const touch           = e.touches[0];
-        const distanceScreenY = Math.abs(touch.screenY - startPos.screenY);
-        const distancePageY   = Math.abs(touch.pageY - startPos.pageY);
+        var touch           = e.touches[0];
+        var distanceScreenY = Math.abs(touch.screenY - startPos.screenY);
+        var distancePageY   = Math.abs(touch.pageY - startPos.pageY);
 
         if (Object.keys(collection).length
           && (distanceScreenY > MAX_DISTANCE || distancePageY > MAX_DISTANCE)) {
