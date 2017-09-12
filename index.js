@@ -54,7 +54,7 @@ import Vue from 'vue';
 
         if (Object.keys(collection).length
           && (distanceScreenY > MAX_DISTANCE || distancePageY > MAX_DISTANCE)) {
-          for (let key in collection) {
+          for (var key in collection) {
             if (collection.hasOwnProperty(key)) {
               removeClass(collection[key].el, collection[key].className);
             }
