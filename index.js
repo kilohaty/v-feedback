@@ -24,9 +24,11 @@ import Vue from 'vue';
         collection[key] = {el: el, className: className};
 
         el.setAttribute('data-feedback-key', key);
+        el.addEventListener('mousedown', addClass.bind(null, el, className));
         el.addEventListener('touchstart', addClass.bind(null, el, className));
         el.addEventListener('touchend', removeClass.bind(null, el, className));
         el.addEventListener('touchcancel', removeClass.bind(null, el, className));
+        el.addEventListener('mouseup', removeClass.bind(null, el, className));
         return key;
       },
 
