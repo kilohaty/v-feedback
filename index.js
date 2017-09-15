@@ -1,6 +1,4 @@
-import Vue from 'vue';
-
-(function () {
+const install = function(Vue) {
   var VFb = (function () {
     var MAX_DISTANCE = 10;
     var collection   = {};
@@ -69,7 +67,6 @@ import Vue from 'vue';
   document.addEventListener('touchstart', VFb.onDocTouchStart.bind(VFb));
   document.addEventListener('touchmove', VFb.onDocTouchMove.bind(VFb));
 
-  /* 触摸反馈 */
   Vue.directive('feedback', {
     bind: function (el, binding, vnode) {
       VFb.register(vnode.elm, binding.value || 'e-feedback');
@@ -79,5 +76,6 @@ import Vue from 'vue';
       VFb.destroy(vnode.elm);
     }
   });
+};
 
-}());
+export default {install: install};
