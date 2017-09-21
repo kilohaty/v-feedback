@@ -1,4 +1,4 @@
-const install = function(Vue) {
+var install = function(Vue) {
   var VFb = (function () {
     var MAX_DISTANCE = 10;
     var collection   = {};
