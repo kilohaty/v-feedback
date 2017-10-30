@@ -2,6 +2,11 @@
 
 #### touch feedback directive for vue2.0 
 
+## install
+```
+npm install v-feedback
+```
+
 ##### example
 ```
 <!DOCTYPE html>
