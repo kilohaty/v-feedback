@@ -10,7 +10,7 @@ npm install v-feedback
 ```
 
 ##### example
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
