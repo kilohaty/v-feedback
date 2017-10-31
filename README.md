@@ -2,6 +2,8 @@
 
 #### touch feedback directive for vue2.0 
 
+![gif preview](example.gif)
+
 ## install
 ```
 npm install v-feedback
