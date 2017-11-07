@@ -4,22 +4,37 @@
 
 ![gif preview](example.gif)
 
-## install
+## Example npm
 ```
 npm install v-feedback
 ```
 
-##### example
+```javascript
+import vFeedback from 'v-feedback';
+Vue.use(VFeedback);
+```
+
+## Example script
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <stlye>
-    .e-feedback {
-      background-color: gray;
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
+  <title>Example</title>
+  <style type="text/css">
+    p {
+      margin-top: 10px;
+      border: 1px solid gray;
+      line-height: 60px;
+      border-radius: 6px;
+      text-align: center;
     }
-    
+
+    .e-feedback {
+      background-color: lightskyblue;
+    }
+
     /* with custom class */
     .my-className {
       background-color: pink;
@@ -28,22 +43,18 @@ npm install v-feedback
 </head>
 <body>
 
-  <div id="app">
-    <!-- default class "e-feedback" -->
-    <div v-feedback></div>
-    
-    <!-- with custom class "my-className" -->
-    <div v-feedback="'my-className'"></div>
-  </div>
-  
-  <script>
-    import 'vue';
-    import 'v-feedback';
-    
-    new Vue({
-      el: '#app'
-    });
-  </script>
+<div id="app">
+  <!-- default class "e-feedback" -->
+  <p v-feedback>with default class</p>
+
+  <!-- with custom class "my-className" -->
+  <p v-feedback="'my-className'">with custom class</p>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/index.js"></script>
+<script>
+  new Vue({el: '#app'});
+</script>
 </body>
 </html>
 
