@@ -11,7 +11,7 @@ npm install v-feedback
 
 ```javascript
 import vFeedback from 'v-feedback';
-Vue.use(VFeedback);
+Vue.use(vFeedback );
 ```
 
 ## Example script
