@@ -5,12 +5,14 @@ var install = function (Vue) {
     var collection   = {};
     var startPos     = {};
 
-    function addClass(elm, className) {
-      elm.classList.add(className);
+    function addClass() {
+      var className = this.getAttribute('data-feedback-class');
+      this.classList.add(className);
     }
 
-    function removeClass(elm, className) {
-      elm.classList.remove(className);
+    function removeClass() {
+      var className = this.getAttribute('data-feedback-class');
+      this.classList.remove(className);
     }
 
     return {
@@ -20,25 +22,27 @@ var install = function (Vue) {
 
       register: function (el, className) {
         var key         = this.generateKey();
-        collection[key] = {el: el, className: className};
+        collection[key] = {el: el};
 
         el.setAttribute('data-feedback-key', key);
-        el.addEventListener('mousedown', addClass.bind(null, el, className));
-        el.addEventListener('touchstart', addClass.bind(null, el, className));
-        el.addEventListener('touchend', removeClass.bind(null, el, className));
-        el.addEventListener('touchcancel', removeClass.bind(null, el, className));
-        el.addEventListener('mouseup', removeClass.bind(null, el, className));
+        el.setAttribute('data-feedback-class', className);
+        el.addEventListener('mousedown', addClass);
+        el.addEventListener('touchstart', addClass);
+        el.addEventListener('touchend', removeClass);
+        el.addEventListener('touchcancel', removeClass);
+        el.addEventListener('mouseup', removeClass);
         return key;
       },
 
       destroy: function (element) {
-        var key       = element.getAttribute('data-feedback-key');
-        var el        = collection[key].el;
-        var className = collection[key].className;
-        el.removeEventListener('touchstart', addClass.bind(null, el, className));
-        el.removeEventListener('touchend', removeClass.bind(null, el, className));
-        el.removeEventListener('touchcancel', removeClass.bind(null, el, className));
-        removeClass(el, className);
+        var key = element.getAttribute('data-feedback-key');
+        var el  = collection[key].el;
+        el.removeEventListener('mousedown', addClass);
+        el.removeEventListener('touchstart', addClass);
+        el.removeEventListener('touchend', removeClass);
+        el.removeEventListener('touchcancel', removeClass);
+        el.removeEventListener('mouseup', removeClass);
+        removeClass.call(el);
         delete collection[key];
       },
 
@@ -57,7 +61,7 @@ var install = function (Vue) {
           && (distanceScreenY > MAX_DISTANCE || distancePageY > MAX_DISTANCE)) {
           for (var key in collection) {
             if (collection.hasOwnProperty(key)) {
-              removeClass(collection[key].el, collection[key].className);
+              removeClass.call(collection[key].el);
             }
           }
         }
@@ -65,8 +69,8 @@ var install = function (Vue) {
     }
   }());
 
-  document.addEventListener('touchstart', VFb.onDocTouchStart.bind(VFb));
-  document.addEventListener('touchmove', VFb.onDocTouchMove.bind(VFb));
+  document.addEventListener('touchstart', VFb.onDocTouchStart);
+  document.addEventListener('touchmove', VFb.onDocTouchMove);
 
   Vue.directive('feedback', {
     bind: function (el, binding, vnode) {
