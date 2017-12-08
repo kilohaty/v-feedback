@@ -85,7 +85,7 @@ var install = function (Vue) {
         VFb.destroy(vnode.elm);
         return;
       }
-      if (!binding.oldValue) {
+      if (binding.oldValue !== undefined && !binding.oldValue) {
         VFb.register(vnode.elm, className);
       } else {
         vnode.elm.setAttribute('data-feedback-class', className);
