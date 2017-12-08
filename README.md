@@ -4,17 +4,18 @@
 
 ![gif preview](example.gif)
 
-## Example npm
+## Default import
 ```
 npm install v-feedback
 ```
 
 ```javascript
+import Vue from 'vue';
 import vFeedback from 'v-feedback';
 Vue.use(vFeedback);
 ```
 
-## Example script
+## Browser
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -58,4 +59,27 @@ Vue.use(vFeedback);
 </body>
 </html>
 
+```
+
+## Usage
+#### default classname
+```html
+<p v-feedback>with default class</p>
+```
+
+#### custom classname
+```html
+<p v-feedback="'your-class-name'">with custom class</p>
+```
+#### disable
+```javascript
+/**
+ * value !== undefined && !value 
+ * Example: null, false, '', 0, ......
+ */
+```
+```html
+<p v-feedback="''">disable</p>
+<p v-feedback="false">disable</p>
+<p v-feedback="null">disable</p>
 ```

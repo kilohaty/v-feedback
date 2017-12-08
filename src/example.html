@@ -11,31 +11,86 @@
       line-height: 60px;
       border-radius: 6px;
       text-align: center;
+      user-select: none;
     }
 
+    /* default class */
     .e-feedback {
-      background-color: lightskyblue;
+      background-color: deepskyblue;
     }
 
-    /* with custom class */
-    .my-className {
-      background-color: pink;
+    /* custom class */
+    .my-className-1 {
+      background-color: hotpink;
+    }
+
+    .my-className-2 {
+      background-color: seagreen;
+    }
+
+    .my-className-3 {
+      background-color: yellow;
+    }
+
+    .my-className-4 {
+      background-color: tomato;
+    }
+
+    button {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 24px;
+      padding: 3px 5px;
+    }
+
+    .class-name-value {
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 30px;
+      margin-bottom: 20px;
+      color: #212121;
     }
   </style>
 </head>
 <body>
-
 <div id="app">
-  <!-- default class "e-feedback" -->
-  <p v-feedback>with default class</p>
-
-  <!-- with custom class "my-className" -->
-  <p v-feedback="'my-className'">with custom class</p>
+  <!-- current className -->
+  <div class="class-name-value">className: {{String(value)}}</div>
+  <!-- target element -->
+  <p v-feedback="value">with default class</p>
+  <!-- test buttons -->
+  <button @click="update(1)">custom class 1</button>
+  <button @click="update(2)">custom class 2</button>
+  <button @click="update(3)">custom class 3</button>
+  <button @click="update(4)">custom class 4</button>
+  <button @click="disable(false)">disable with false</button>
+  <button @click="disable(null)">disable with null</button>
+  <button @click="disable(0)">disable with 0</button>
+  <button @click="disable('')">disable with ''</button>
 </div>
-<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="../dist/index.js"></script>
 <script>
-  new Vue({el: '#app'});
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        value: 'e-feedback'
+      }
+    },
+    methods: {
+      update(index) {
+        this.value = 'my-className-' + index;
+      },
+
+      disable(value) {
+        this.value = value;
+      }
+    }
+  });
 </script>
 </body>
 </html>

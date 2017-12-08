@@ -21,6 +21,7 @@ var install = function (Vue) {
       },
 
       register: function (el, className) {
+        if (!className) return;
         var key         = this.generateKey();
         collection[key] = {el: el};
 
@@ -34,16 +35,16 @@ var install = function (Vue) {
         return key;
       },
 
-      destroy: function (element) {
-        var key = element.getAttribute('data-feedback-key');
-        var el  = collection[key].el;
+      destroy: function (el) {
+        var key = el.getAttribute('data-feedback-key');
         el.removeEventListener('mousedown', addClass);
         el.removeEventListener('touchstart', addClass);
         el.removeEventListener('touchend', removeClass);
         el.removeEventListener('touchcancel', removeClass);
         el.removeEventListener('mouseup', removeClass);
+        el.removeAttribute('data-feedback-key');
         removeClass.call(el);
-        delete collection[key];
+        key && delete collection[key];
       },
 
       onDocTouchStart: function (e) {
@@ -74,7 +75,21 @@ var install = function (Vue) {
 
   Vue.directive('feedback', {
     bind: function (el, binding, vnode) {
-      VFb.register(vnode.elm, binding.value || 'e-feedback');
+      var className = binding.value === undefined ? 'e-feedback' : binding.value;
+      VFb.register(vnode.elm, className);
+    },
+
+    componentUpdated: function (el, binding, vnode) {
+      var className = binding.value === undefined ? 'e-feedback' : binding.value;
+      if (!className) {
+        VFb.destroy(vnode.elm);
+        return;
+      }
+      if (!binding.oldValue) {
+        VFb.register(vnode.elm, className);
+      } else {
+        vnode.elm.setAttribute('data-feedback-class', className);
+      }
     },
 
     unbind: function (el, binding, vnode) {
