@@ -1,12 +1,13 @@
 # v-feedback
 
-English | <a href="./README-zhcn.md">中文</a>
+<a href="./README.md">English</a> | 中文
 
-#### touch feedback directive for vue2.0 
+
+#### 触摸反馈指令（vue2.0 ）
 
 ![gif preview](example.gif)
 
-## Default import
+## ES6 方式引入
 ```
 npm install v-feedback --save
 ```
@@ -17,7 +18,7 @@ import vFeedback from 'v-feedback';
 Vue.use(vFeedback);
 ```
 
-## Browser
+## 直接引入js文件
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@ Vue.use(vFeedback);
       background-color: lightskyblue;
     }
 
-    /* with custom class */
+    /* 自定义类名 */
     .my-className {
       background-color: pink;
     }
@@ -47,11 +48,11 @@ Vue.use(vFeedback);
 <body>
 
 <div id="app">
-  <!-- default class "e-feedback" -->
-  <p v-feedback>with default class</p>
+  <!-- 默认类名 "e-feedback" -->
+  <p v-feedback>默认类名</p>
 
-  <!-- with custom class "my-className" -->
-  <p v-feedback="'my-className'">with custom class</p>
+  <!-- 自定义类名 "my-className" -->
+  <p v-feedback="'my-className'">自定义类名</p>
 </div>
 <script src="https://unpkg.com/vue"></script>
 <script src="../dist/index.js"></script>
@@ -63,25 +64,25 @@ Vue.use(vFeedback);
 
 ```
 
-## Usage
-#### default classname
+## 使用说明
+#### 默认类名
 ```html
-<p v-feedback>with default class</p>
+<p v-feedback>默认类名</p>
 ```
 
-#### custom classname
+#### 自定义类名
 ```html
-<p v-feedback="'your-class-name'">with custom class</p>
+<p v-feedback="'your-class-name'">自定义类名</p>
 ```
-#### disable
+#### 禁用
 ```javascript
 /**
  * value !== undefined && !value 
- * Example: null, false, '', 0, ......
+ * 示例值: null, false, '', 0, ......
  */
 ```
 ```html
-<p v-feedback="''">disable</p>
-<p v-feedback="false">disable</p>
-<p v-feedback="null">disable</p>
+<p v-feedback="''">禁用指令</p>
+<p v-feedback="false">禁用指令</p>
+<p v-feedback="null">禁用指令</p>
 ```
