@@ -22,6 +22,19 @@ Vue.use(vFeedback);
 ```html
 <!DOCTYPE html>
 <html lang="en">
+<head></head>
+<body>
+<script src="./dist/index.js"></script>
+</body>
+```
+
+## 示例
+<a href="./src/example.html">点击查看示例代码</a>
+
+#### 示例代码
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>

@@ -21,6 +21,19 @@ Vue.use(vFeedback);
 ```html
 <!DOCTYPE html>
 <html lang="en">
+<head></head>
+<body>
+<script src="./dist/index.js"></script>
+</body>
+```
+
+## Example
+<a href="./src/example.html">click to view example code</a>
+
+#### example code
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"/>
